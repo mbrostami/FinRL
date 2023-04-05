@@ -99,11 +99,12 @@ class DRLAgent:
             **model_kwargs,
         )
 
-    def train_model(self, model, tb_log_name, total_timesteps=5000):
+    def train_model(self, model, tb_log_name, total_timesteps=5000, progress_bar=False):
         model = model.learn(
             total_timesteps=total_timesteps,
             tb_log_name=tb_log_name,
             callback=TensorboardCallback(),
+            progress_bar=progress_bar,
         )
         return model
 
